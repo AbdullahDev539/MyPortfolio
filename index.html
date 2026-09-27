@@ -1,0 +1,1433 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abdullah | Full Stack & Mobile App Developer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              darkBg: "#060913",
+              cardBg: "#0f172a",
+              neonTeal: "#06b6d4",
+              neonViolet: "#8b5cf6",
+              neonPink: "#ec4899",
+            },
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Google Fonts: Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #060913;
+        color: #f3f4f6;
+        overflow-x: hidden;
+      }
+      /* Modern Glow & Animation Effects */
+      .glow-box {
+        box-shadow: 0 0 30px rgba(6, 182, 212, 0.12);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glow-box:hover {
+        box-shadow: 0 0 45px rgba(6, 182, 212, 0.35),
+          0 0 15px rgba(139, 92, 246, 0.3);
+        transform: translateY(-8px);
+        border-color: rgba(6, 182, 212, 0.5);
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+      .floating-anim {
+        animation: float 4s ease-in-out infinite;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #060913;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #06b6d4;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-darkBg text-slate-100 relative selection:bg-cyan-500 selection:text-white"
+  >
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 w-full z-50 bg-darkBg/85 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300 shadow-2xl"
+      id="navbar"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <a
+          href="#"
+          class="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-500 bg-clip-text text-transparent hover:opacity-90 transition-opacity"
+        >
+          &lt;AbdullahDev /&gt;
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="#hero" class="hover:text-cyan-400 transition-colors">Home</a>
+          <a href="#about" class="hover:text-cyan-400 transition-colors"
+            >About</a
+          >
+          <a href="#skills" class="hover:text-cyan-400 transition-colors"
+            >Skills</a
+          >
+          <a href="#projects" class="hover:text-cyan-400 transition-colors"
+            >Projects</a
+          >
+          <a href="#services" class="hover:text-cyan-400 transition-colors"
+            >Services</a
+          >
+          <a
+            href="#contact"
+            class="px-6 py-2.5 rounded-full bg-gradient-to-r from-cyan-500 via-violet-600 to-pink-500 text-white font-semibold shadow-lg shadow-cyan-500/25 hover:scale-105 transition-all"
+            >Let's Talk</a
+          >
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-2xl text-slate-300 focus:outline-none hover:text-cyan-400 transition-colors"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-cardBg border-b border-slate-800 px-6 py-5 space-y-4 shadow-2xl backdrop-blur-xl"
+      >
+        <a
+          href="#hero"
+          class="block hover:text-cyan-400 transition-colors mobile-link font-medium"
+          >Home</a
+        >
+        <a
+          href="#about"
+          class="block hover:text-cyan-400 transition-colors mobile-link font-medium"
+          >About</a
+        >
+        <a
+          href="#skills"
+          class="block hover:text-cyan-400 transition-colors mobile-link font-medium"
+          >Skills</a
+        >
+        <a
+          href="#projects"
+          class="block hover:text-cyan-400 transition-colors mobile-link font-medium"
+          >Projects</a
+        >
+        <a
+          href="#services"
+          class="block hover:text-cyan-400 transition-colors mobile-link font-medium"
+          >Services</a
+        >
+        <a
+          href="#contact"
+          class="block text-center w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 via-violet-600 to-pink-500 text-white font-semibold shadow-lg"
+          >Let's Talk</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="min-h-screen flex items-center justify-center relative pt-24 px-6 overflow-hidden"
+    >
+      <!-- Background Glow Animated Blobs -->
+      <div
+        class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none animate-pulse"
+      ></div>
+      <div
+        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/15 rounded-full blur-[120px] pointer-events-none animate-pulse"
+        style="animation-delay: 1.5s"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10 w-full py-12"
+      >
+        <div data-aos="fade-right" data-aos-duration="1000" class="space-y-6">
+          <div
+            class="inline-flex items-center space-x-2.5 px-4 py-2 rounded-full bg-slate-900/90 border border-slate-700/80 text-cyan-400 text-xs sm:text-sm font-medium shadow-inner"
+          >
+            <span
+              class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-ping"
+            ></span>
+            <span>Available for Freelance & Full-time Roles</span>
+          </div>
+          <h1
+            class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight"
+          >
+            Hi, I'm
+            <span
+              class="bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-500 bg-clip-text text-transparent"
+              >Abdullah</span
+            >
+          </h1>
+          <div
+            class="text-xl sm:text-2xl font-semibold text-slate-300 h-10 flex items-center"
+          >
+            I build
+            <span
+              id="typing-text"
+              class="text-cyan-400 ml-2 border-b-2 border-cyan-400 pb-0.5 font-bold"
+            ></span>
+          </div>
+          <p
+            class="text-slate-400 text-base sm:text-lg max-w-lg leading-relaxed"
+          >
+            Passionate Full Stack & Mobile App Engineer specializing in creating
+            high-performance web applications and sleek cross-platform mobile apps
+            with immersive user interfaces.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-2">
+            <a
+              href="#projects"
+              class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 via-violet-600 to-pink-500 font-semibold text-white shadow-lg shadow-cyan-500/30 hover:scale-105 transition-all flex items-center space-x-2"
+            >
+              <span>Explore Projects</span>
+              <i class="fa-solid fa-arrow-right text-sm"></i>
+            </a>
+            <a
+              href="#contact"
+              class="px-8 py-3.5 rounded-xl bg-cardBg border border-slate-700 font-semibold text-slate-200 hover:border-cyan-400 hover:text-cyan-400 transition-all shadow-md"
+            >
+              Contact Me
+            </a>
+          </div>
+          <!-- Quick Stats -->
+          <div
+            class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-800/80 text-center sm:text-left"
+          >
+            <div>
+              <h4 class="text-3xl font-extrabold text-cyan-400">3+</h4>
+              <p class="text-xs sm:text-sm text-slate-400">Years Experience</p>
+            </div>
+            <div>
+              <h4 class="text-3xl font-extrabold text-violet-400">30+</h4>
+              <p class="text-xs sm:text-sm text-slate-400">
+                Projects Completed
+              </p>
+            </div>
+            <div>
+              <h4 class="text-3xl font-extrabold text-pink-400">100%</h4>
+              <p class="text-xs sm:text-sm text-slate-400">Client Rating</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Graphic Card with Floating Effect -->
+        <div
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          class="flex justify-center"
+        >
+          <div
+            class="relative w-full max-w-md aspect-square bg-gradient-to-br from-cardBg via-slate-900 to-darkBg rounded-3xl border border-slate-800 p-8 shadow-2xl glow-box floating-anim flex flex-col justify-between"
+          >
+            <div class="flex justify-between items-center">
+              <div class="flex space-x-2">
+                <span class="w-3 h-3 rounded-full bg-red-500 shadow-sm"></span>
+                <span
+                  class="w-3 h-3 rounded-full bg-yellow-500 shadow-sm"
+                ></span>
+                <span class="w-3 h-3 rounded-full bg-green-500 shadow-sm"></span>
+              </div>
+              <span
+                class="text-xs font-mono text-cyan-400 bg-cyan-950/50 px-2.5 py-1 rounded-md border border-cyan-800/50"
+                >abdullah_dev.js</span
+              >
+            </div>
+            <div
+              class="space-y-2.5 font-mono text-xs sm:text-sm text-slate-300 bg-darkBg/80 p-5 rounded-2xl border border-slate-800 shadow-inner"
+            >
+              <p class="text-violet-400">
+                const <span class="text-cyan-400">engineer</span> = {
+              </p>
+              <p class="pl-4">
+                name: <span class="text-amber-300">'Abdullah'</span>,
+              </p>
+              <p class="pl-4">
+                role:
+                <span class="text-amber-300"
+                  >'Full Stack & App Expert'</span
+                >,
+              </p>
+              <p class="pl-4">
+                stack: [<span class="text-amber-300">'React'</span>,
+                <span class="text-amber-300">'Node'</span>,
+                <span class="text-amber-300">'React Native'</span>],
+              </p>
+              <p class="pl-4">
+                passion: <span class="text-pink-400">'Building the Future'</span>,
+              </p>
+              <p class="pl-4">
+                status: <span class="text-emerald-400">true</span>
+              </p>
+              <p class="text-violet-400">};</p>
+            </div>
+            <div
+              class="flex items-center justify-between text-xs text-slate-400 pt-4 border-t border-slate-800/80"
+            >
+              <span class="flex items-center space-x-1.5"
+                ><i class="fa-solid fa-code text-cyan-400"></i
+                ><span>Clean Code</span></span
+              >
+              <span class="flex items-center space-x-1.5"
+                ><i class="fa-solid fa-mobile-screen text-violet-400"></i
+                ><span>Cross-Platform</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="py-24 bg-cardBg/30 border-y border-slate-800/60 relative"
+    >
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+          <h2
+            class="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3"
+          >
+            About Me
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            Dedicated to Crafting Exceptional Digital Experiences
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div data-aos="fade-right" class="space-y-6">
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+              Hello! I am a results-driven Software Engineer with a deep passion
+              for building robust web and mobile architectures. Over the past 3+
+              years, I've designed and delivered scalable full-stack
+              applications from scratch.
+            </p>
+            <p class="text-slate-400 text-base leading-relaxed">
+              My expertise spans across modern frontend frameworks like
+              <strong class="text-cyan-400">React.js</strong>, powerful backend
+              engines with
+              <strong class="text-violet-400">Node.js & Express.js</strong>,
+              flexible document databases via
+              <strong class="text-cyan-400">MongoDB</strong>, and native-feeling
+              cross-platform mobile apps with
+              <strong class="text-pink-400">React Native</strong>.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-4">
+              <div
+                class="p-4 rounded-xl bg-darkBg border border-slate-800 shadow-md"
+              >
+                <h5 class="text-cyan-400 font-semibold mb-1">
+                  <i class="fa-solid fa-graduation-cap mr-2"></i>Education
+                </h5>
+                <p class="text-xs text-slate-400">
+                  B.S. in Software Engineering
+                </p>
+              </div>
+              <div
+                class="p-4 rounded-xl bg-darkBg border border-slate-800 shadow-md"
+              >
+                <h5 class="text-violet-400 font-semibold mb-1">
+                  <i class="fa-solid fa-location-dot mr-2"></i>Location
+                </h5>
+                <p class="text-xs text-slate-400">
+                  Gujrat (JpJ), Pakistan / Remote
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Feature Highlights Cards -->
+          <div
+            data-aos="fade-left"
+            class="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            <div
+              class="p-6 rounded-2xl bg-darkBg border border-slate-800 glow-box"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4 shadow-inner"
+              >
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">Web Development</h4>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Building lightning-fast, responsive web apps using React,
+                Tailwind, and robust REST APIs.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-2xl bg-darkBg border border-slate-800 glow-box"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center text-xl mb-4 shadow-inner"
+              >
+                <i class="fa-solid fa-mobile-screen-button"></i>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">Mobile App Dev</h4>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Developing cross-platform iOS and Android apps with React Native
+                with smooth native feel.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-2xl bg-darkBg border border-slate-800 glow-box"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl mb-4 shadow-inner"
+              >
+                <i class="fa-solid fa-server"></i>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">Backend & Database</h4>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Designing secure RESTful services with Node.js, Express, and
+                high-performance MongoDB clusters.
+              </p>
+            </div>
+            <div
+              class="p-6 rounded-2xl bg-darkBg border border-slate-800 glow-box"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-4 shadow-inner"
+              >
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+              </div>
+              <h4 class="text-lg font-semibold mb-2">UI/UX Optimization</h4>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Crafting clean layouts, intuitive workflows, and smooth
+                animations for optimal engagement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+          <h2
+            class="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3"
+          >
+            Technical Proficiency
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            Core Technologies & Tools
+          </h3>
+        </div>
+
+        <!-- Skill Filter Buttons -->
+        <div
+          class="flex flex-wrap justify-center gap-3 mb-12"
+          data-aos="fade-up"
+        >
+          <button
+            class="skill-filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-cyan-500 to-violet-600 text-white transition-all shadow-md shadow-cyan-500/25"
+            data-filter="all"
+          >
+            All Skills
+          </button>
+          <button
+            class="skill-filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-cardBg border border-slate-700 text-slate-300 hover:border-cyan-400 transition-all"
+            data-filter="frontend"
+          >
+            Frontend & Mobile
+          </button>
+          <button
+            class="skill-filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-cardBg border border-slate-700 text-slate-300 hover:border-cyan-400 transition-all"
+            data-filter="backend"
+          >
+            Backend & DB
+          </button>
+          <button
+            class="skill-filter-btn px-6 py-2.5 rounded-full text-sm font-semibold bg-cardBg border border-slate-700 text-slate-300 hover:border-cyan-400 transition-all"
+            data-filter="tools"
+          >
+            Tools & DevOps
+          </button>
+        </div>
+
+        <!-- Skills Grid -->
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6"
+          id="skills-grid"
+        >
+          <!-- Skill Card 1 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="frontend"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-brands fa-react"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">React.js</h4>
+            <p class="text-xs text-slate-400">Advanced SPAs & Hooks</p>
+          </div>
+
+          <!-- Skill Card 2 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="frontend"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-violet-500/10 text-violet-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-solid fa-mobile-button"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">React Native</h4>
+            <p class="text-xs text-slate-400">Cross-Platform Apps</p>
+          </div>
+
+          <!-- Skill Card 3 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="backend"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-brands fa-node-js"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Node.js</h4>
+            <p class="text-xs text-slate-400">Asynchronous Runtime</p>
+          </div>
+
+          <!-- Skill Card 4 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="backend"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Express.js</h4>
+            <p class="text-xs text-slate-400">REST APIs & Middleware</p>
+          </div>
+
+          <!-- Skill Card 5 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="backend"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-solid fa-database"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">MongoDB</h4>
+            <p class="text-xs text-slate-400">NoSQL DB & Mongoose</p>
+          </div>
+
+          <!-- Skill Card 6 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="frontend"
+            data-aos="zoom-in"
+            data-aos-delay="600"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-brands fa-js"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">JavaScript (ES6+)</h4>
+            <p class="text-xs text-slate-400">Modern JS & DOM</p>
+          </div>
+
+          <!-- Skill Card 7 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="frontend"
+            data-aos="zoom-in"
+            data-aos-delay="700"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">HTML5 & CSS3</h4>
+            <p class="text-xs text-slate-400">Tailwind & Responsive UI</p>
+          </div>
+
+          <!-- Skill Card 8 -->
+          <div
+            class="skill-card p-6 rounded-2xl bg-cardBg border border-slate-800 text-center glow-box transition-all"
+            data-category="tools"
+            data-aos="zoom-in"
+            data-aos-delay="800"
+          >
+            <div
+              class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-3xl shadow-inner"
+            >
+              <i class="fa-brands fa-git-alt"></i>
+            </div>
+            <h4 class="font-semibold text-lg mb-1">Git & GitHub</h4>
+            <p class="text-xs text-slate-400">Version Control & CI</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section
+      id="projects"
+      class="py-24 bg-cardBg/30 border-y border-slate-800/60 relative"
+    >
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+          <h2
+            class="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3"
+          >
+            Featured Work
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            Recent Apps & Web Projects
+          </h3>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- New Project 1: Restaurant App -->
+          <div
+            class="rounded-2xl bg-darkBg border border-slate-800 overflow-hidden glow-box flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div>
+              <div
+                class="h-48 bg-gradient-to-br from-amber-900/40 via-orange-950/30 to-slate-900 relative p-6 flex items-center justify-center border-b border-slate-800"
+              >
+                <div
+                  class="absolute top-4 right-4 bg-amber-500/20 text-amber-400 text-xs px-3 py-1 rounded-full font-medium border border-amber-500/30"
+                >
+                  Mobile & Web App
+                </div>
+                <i
+                  class="fa-solid fa-utensils text-6xl text-amber-400 opacity-90"
+                ></i>
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-slate-100">
+                  Restaurant Ordering & Delivery App
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  A feature-rich food delivery application featuring real-time
+                  menu browsing, custom meal configurations, secure cart checkout,
+                  and live order tracking.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-400 text-xs font-mono"
+                    >React Native</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-violet-400 text-xs font-mono"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-emerald-400 text-xs font-mono"
+                    >MongoDB</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/80 mt-4"
+            >
+              <a
+                href="#contact"
+                class="text-xs font-semibold text-cyan-400 hover:underline flex items-center space-x-1"
+              >
+                <span>Request Demo</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+             
+            </div>
+          </div>
+
+          <!-- New Project 2: FairytaleAI App for Kids -->
+          <div
+            class="rounded-2xl bg-darkBg border border-slate-800 overflow-hidden glow-box flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div>
+              <div
+                class="h-48 bg-gradient-to-br from-pink-900/40 via-purple-950/30 to-slate-900 relative p-6 flex items-center justify-center border-b border-slate-800"
+              >
+                <div
+                  class="absolute top-4 right-4 bg-pink-500/20 text-pink-400 text-xs px-3 py-1 rounded-full font-medium border border-pink-500/30"
+                >
+                  AI Kids App
+                </div>
+                <i
+                  class="fa-solid fa-wand-magic-sparkles text-6xl text-pink-400 opacity-90"
+                ></i>
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-slate-100">
+                  FairytaleAI App for Kids
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  An interactive AI-powered storybook application where children
+                  can generate magical stories, listen to narrated audio
+                  tales, and sing along with animated characters.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-400 text-xs font-mono"
+                    >React Native</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-pink-400 text-xs font-mono"
+                    >AI Audio APIs</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-violet-400 text-xs font-mono"
+                    >Express</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/80 mt-4"
+            >
+              <a
+                href="#contact"
+                class="text-xs font-semibold text-cyan-400 hover:underline flex items-center space-x-1"
+              >
+                <span>Request Demo</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              
+            </div>
+          </div>
+
+          <!-- New Project 3: GroceryShop App -->
+          <div
+            class="rounded-2xl bg-darkBg border border-slate-800 overflow-hidden glow-box flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div>
+              <div
+                class="h-48 bg-gradient-to-br from-emerald-900/40 via-teal-950/30 to-slate-900 relative p-6 flex items-center justify-center border-b border-slate-800"
+              >
+                <div
+                  class="absolute top-4 right-4 bg-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded-full font-medium border border-emerald-500/30"
+                >
+                  E-Commerce App
+                </div>
+                <i
+                  class="fa-solid fa-basket-shopping text-6xl text-emerald-400 opacity-90"
+                ></i>
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-slate-100">
+                  GroceryShop E-Commerce App
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  A seamless daily essentials and grocery shopping platform
+                  featuring category filters, instant product search, smart
+                  cart management, and fast doorstep delivery tracking.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-cyan-400 text-xs font-mono"
+                    >React Native</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-emerald-400 text-xs font-mono"
+                    >MongoDB</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-violet-400 text-xs font-mono"
+                    >Node.js</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/80 mt-4"
+            >
+              <a
+                href="#contact"
+                class="text-xs font-semibold text-cyan-400 hover:underline flex items-center space-x-1"
+              >
+                <span>Request Demo</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              
+            </div>
+          </div>
+
+          <!-- Existing Project 1: Todo App -->
+          <div
+            class="rounded-2xl bg-darkBg border border-slate-800 overflow-hidden glow-box flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div>
+              <div
+                class="h-48 bg-gradient-to-br from-cyan-900/40 to-slate-900 relative p-6 flex items-center justify-center border-b border-slate-800"
+              >
+                <div
+                  class="absolute top-4 right-4 bg-cyan-500/20 text-cyan-400 text-xs px-3 py-1 rounded-full font-medium"
+                >
+                  React Native App
+                </div>
+                <i
+                  class="fa-solid fa-list-check text-6xl text-cyan-400 opacity-90"
+                ></i>
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-slate-100">
+                  Advanced Task Management Todo App
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  A modern task management application featuring a clean
+                  interface, CRUD operations, and local data persistence.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-400 text-xs font-mono"
+                    >React Native</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800 text-violet-400 text-xs font-mono"
+                    >Node.js</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800/80 text-emerald-400 text-xs font-mono"
+                    >MongoDB</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/80 mt-4"
+            >
+              <a
+                href="#contact"
+                class="text-xs font-semibold text-cyan-400 hover:underline flex items-center space-x-1"
+              >
+                <span>Request Demo</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+             
+            </div>
+          </div>
+
+          <!-- Existing Project 2: Flashcard Quiz App -->
+          <div
+            class="rounded-2xl bg-darkBg border border-slate-800 overflow-hidden glow-box flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div>
+              <div
+                class="h-48 bg-gradient-to-br from-violet-900/40 to-slate-900 relative p-6 flex items-center justify-center border-b border-slate-800"
+              >
+                <div
+                  class="absolute top-4 right-4 bg-violet-500/20 text-violet-400 text-xs px-3 py-1 rounded-full font-medium"
+                >
+                  React Native App
+                </div>
+                <i
+                  class="fa-solid fa-brain text-6xl text-violet-400 opacity-90"
+                ></i>
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-slate-100">
+                  Flashcard Quiz App
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  An interactive mobile-based learning tool featuring dynamic
+                  flashcards, self-assessment tests, and score tracking.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-400 text-xs font-mono"
+                    >React Native</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/80 mt-4"
+            >
+              <a
+                href="#contact"
+                class="text-xs font-semibold text-cyan-400 hover:underline flex items-center space-x-1"
+              >
+                <span>Request Demo</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+             
+            </div>
+          </div>
+
+          <!-- Existing Project 3: Mandi Khata App -->
+          <div
+            class="rounded-2xl bg-darkBg border border-slate-800 overflow-hidden glow-box flex flex-col justify-between"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div>
+              <div
+                class="h-48 bg-gradient-to-br from-emerald-900/40 to-slate-900 relative p-6 flex items-center justify-center border-b border-slate-800"
+              >
+                <div
+                  class="absolute top-4 right-4 bg-emerald-500/20 text-emerald-400 text-xs px-3 py-1 rounded-full font-medium"
+                >
+                  Full Stack Solution
+                </div>
+                <i
+                  class="fa-solid fa-scale-balanced text-6xl text-emerald-400 opacity-90"
+                ></i>
+              </div>
+              <div class="p-6 space-y-4">
+                <h4 class="text-xl font-bold text-slate-100">
+                  Mandi Khata Ledger App
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  A comprehensive ledger and inventory management system
+                  designed for grain/produce markets to track transactions.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800 text-cyan-400 text-xs font-mono"
+                    >React.js</span
+                  >
+                  <span
+                    class="px-2.5 py-1 rounded-md bg-slate-800 text-violet-400 text-xs font-mono"
+                    >Electron.js</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="p-6 pt-0 flex items-center justify-between border-t border-slate-800/80 mt-4"
+            >
+              <a
+                href="#contact"
+                class="text-xs font-semibold text-cyan-400 hover:underline flex items-center space-x-1"
+              >
+                <span>Request Demo</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </a>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services & Experience Section -->
+    <section id="services" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+          <h2
+            class="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3"
+          >
+            What I Offer
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            Professional Engineering Services
+          </h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="p-8 rounded-2xl bg-cardBg border border-slate-800 glow-box space-y-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-2xl shadow-inner"
+            >
+              <i class="fa-solid fa-code"></i>
+            </div>
+            <h4 class="text-xl font-bold">Full Stack Web Apps</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              End-to-end development of dynamic web platforms using React,
+              Node.js, Express, and MongoDB with secure authentication.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 pt-2">
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-cyan-400"></i
+                ><span>Custom React SPAs</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-cyan-400"></i
+                ><span>Secure REST API Architecture</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-cyan-400"></i
+                ><span>Database Optimization</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="p-8 rounded-2xl bg-cardBg border border-slate-800 glow-box space-y-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center text-2xl shadow-inner"
+            >
+              <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+            <h4 class="text-xl font-bold">Mobile App Development</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Cross-platform mobile applications built with React Native for
+              seamless performance on both iOS and Android platforms.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 pt-2">
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-violet-400"></i
+                ><span>iOS & Android Apps</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-violet-400"></i
+                ><span>Push Notifications & Offline Sync</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-violet-400"></i
+                ><span>App Store & Play Store Deployment</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Service 3 -->
+          <div
+            class="p-8 rounded-2xl bg-cardBg border border-slate-800 glow-box space-y-4"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="w-14 h-14 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-2xl shadow-inner"
+            >
+              <i class="fa-solid fa-gears"></i>
+            </div>
+            <h4 class="text-xl font-bold">Code Review & Consultation</h4>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Refactoring legacy code, performance tuning, architecture audits,
+              and technical advisory to scale your workflows.
+            </p>
+            <ul class="space-y-2 text-xs text-slate-300 pt-2">
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-pink-400"></i
+                ><span>Performance Optimization</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-pink-400"></i
+                ><span>Code Refactoring & Security Audit</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-check text-pink-400"></i
+                ><span>Technical Mentorship</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section (Form Removed, Info & Fiverr Added) -->
+    <section
+      id="contact"
+      class="py-24 bg-cardBg/30 border-t border-slate-800/60 relative"
+    >
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+          <h2
+            class="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3"
+          >
+            Get In Touch
+          </h2>
+          <h3 class="text-3xl sm:text-4xl font-bold tracking-tight">
+            Let's Build Something Amazing Together
+          </h3>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center justify-center"
+        >
+          <!-- Contact Info Cards -->
+          <div
+            data-aos="fade-right"
+            class="space-y-6 bg-darkBg p-8 rounded-3xl border border-slate-800 shadow-xl glow-box"
+          >
+            <p class="text-slate-300 text-sm leading-relaxed mb-4">
+              Whether you have a project in mind, want to hire me for a
+              full-time or freelance position, or just want to connect, feel free
+              to reach out directly!
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl shadow-inner shrink-0"
+                >
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <h5 class="text-xs text-slate-400 uppercase tracking-wider">
+                    Email Me
+                  </h5>
+                  <a
+                    href="mailto:abdullahilayas979@gmail.com"
+                    class="text-slate-200 text-sm font-semibold hover:text-cyan-400 transition-colors break-all"
+                    >abdullahilayas979@gmail.com</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-400 flex items-center justify-center text-xl shadow-inner shrink-0"
+                >
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <h5 class="text-xs text-slate-400 uppercase tracking-wider">
+                    Call / WhatsApp
+                  </h5>
+                  <a
+                    href="tel:+923267417348"
+                    class="text-slate-200 text-sm font-semibold hover:text-violet-400 transition-colors"
+                    >+923267417348</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div
+                  class="w-12 h-12 rounded-xl bg-pink-500/10 text-pink-400 flex items-center justify-center text-xl shadow-inner shrink-0"
+                >
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h5 class="text-xs text-slate-400 uppercase tracking-wider">
+                    Location
+                  </h5>
+                  <p class="text-slate-200 text-sm font-semibold">
+                    Gujrat (JpJ), Punjab, Pakistan (Remote Available)
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hire Me on Fiverr & Socials Box -->
+          <div
+            data-aos="fade-left"
+            class="bg-darkBg p-8 rounded-3xl border border-slate-800 shadow-xl glow-box flex flex-col justify-between text-center space-y-6"
+          >
+            <div>
+              <div
+                class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-3xl shadow-inner"
+              >
+                <i class="fa-solid fa-briefcase"></i>
+              </div>
+              <h4 class="text-xl font-bold text-slate-100 mb-2">
+                Hire Me on Freelance Platforms
+              </h4>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                Looking for professional web or mobile app development? Order my
+                services directly on Fiverr or connect through my social
+                profiles.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <a
+                href="https://www.fiverr.com/abdullah_dev786"
+                target="_blank"
+                class="block w-full py-3.5 rounded-xl bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 text-sm flex items-center justify-center space-x-2"
+              >
+                <i class="fa-solid fa-store text-base"></i>
+                <span>Hire Me on Fiverr</span>
+              </a>
+              <div class="flex justify-center space-x-4 pt-2">
+                <a
+                  href="https://github.com/AbdullahDev539"
+                  target="_blank"
+                  class="w-12 h-12 rounded-xl bg-cardBg border border-slate-700 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition-all text-xl shadow-md"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/abdullah-ilyas-233824389"
+                  target="_blank"
+                  class="w-12 h-12 rounded-xl bg-cardBg border border-slate-700 flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-400 transition-all text-xl shadow-md"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a
+                  href="https://www.fiverr.com/abdullah_dev786"
+                  target="_blank"
+                  class="w-12 h-12 rounded-xl bg-cardBg border border-slate-700 flex items-center justify-center text-slate-300 hover:text-emerald-400 hover:border-emerald-400 transition-all text-xl shadow-md"
+                  ><i class="fa-solid fa-f"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enhanced Attractive Footer -->
+    <footer
+      class="py-12 bg-darkBg border-t border-slate-800 relative overflow-hidden text-center"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-cyan-950/20 to-transparent pointer-events-none"
+      ></div>
+      <div class="max-w-7xl mx-auto px-6 relative z-10 space-y-6">
+        <a
+          href="#"
+          class="inline-block text-2xl font-extrabold tracking-wider bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-500 bg-clip-text text-transparent"
+        >
+          &lt;AbdullahDev /&gt;
+        </a>
+        <p class="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
+          Building high-performance web applications & cross-platform mobile
+          solutions with passion and precision.
+        </p>
+        <div class="flex justify-center space-x-6 text-slate-400 text-lg">
+          <a
+            href="https://github.com/AbdullahDev539"
+            target="_blank"
+            class="hover:text-cyan-400 transition-colors"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/abdullah-ilyas-233824389"
+            target="_blank"
+            class="hover:text-cyan-400 transition-colors"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://www.fiverr.com/abdullah_dev786"
+            target="_blank"
+            class="hover:text-emerald-400 transition-colors"
+            ><i class="fa-solid fa-briefcase"></i
+          ></a>
+        </div>
+        <div
+          class="pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500"
+        >
+          <p>&copy; 2026 Abdullah. All rights reserved.</p>
+          <p
+            class="flex items-center space-x-1.5 bg-cardBg px-4 py-2 rounded-full border border-slate-800 shadow-inner"
+          >
+            <span class="text-slate-400"
+              >Designed & Built with <i class="fa-solid fa-heart text-pink-500"></i> by</span
+            >
+            <span
+              class="font-semibold bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent"
+              >Abdullah</span
+            >
+            <span class="text-slate-500">| Full Stack Engineer</span>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- AOS Library Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS animations
+      AOS.init({
+        once: true,
+        offset: 100,
+        duration: 800,
+      });
+
+      // Mobile Menu Toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+
+      // Navbar Scroll Effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add(
+            "bg-darkBg/95",
+            "shadow-2xl",
+            "border-slate-800",
+          );
+        } else {
+          navbar.classList.remove("bg-darkBg/95", "shadow-2xl");
+        }
+      });
+
+      // Typing Effect in Hero Section
+      const words = [
+        "Full Stack Web Apps",
+        "Cross-Platform Mobile Apps",
+        "React Native Solutions",
+        "Scalable Node.js APIs",
+      ];
+      let i = 0;
+      let timer;
+
+      function typingEffect() {
+        let word = words[i].split("");
+        var loopTyping = function () {
+          if (word.length > 0) {
+            document.getElementById("typing-text").innerHTML += word.shift();
+          } else {
+            setTimeout(deletingEffect, 2000);
+            return false;
+          }
+          timer = setTimeout(loopTyping, 100);
+        };
+        loopTyping();
+      }
+
+      function deletingEffect() {
+        let word = words[i].split("");
+        var loopDeleting = function () {
+          if (word.length > 0) {
+            word.pop();
+            document.getElementById("typing-text").innerHTML = word.join("");
+          } else {
+            if (words.length > i + 1) {
+              i++;
+            } else {
+              i = 0;
+            }
+            setTimeout(typingEffect, 500);
+            return false;
+          }
+          timer = setTimeout(loopDeleting, 50);
+        };
+        loopDeleting();
+      }
+
+      typingEffect();
+
+      // Skills Filter Functionality
+      const filterBtns = document.querySelectorAll(".skill-filter-btn");
+      const skillCards = document.querySelectorAll(".skill-card");
+
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterBtns.forEach((b) => {
+            b.classList.remove(
+              "bg-gradient-to-r",
+              "from-cyan-500",
+              "to-violet-600",
+              "text-white",
+              "shadow-md",
+              "shadow-cyan-500/25",
+            );
+            b.classList.add(
+              "bg-cardBg",
+              "border",
+              "border-slate-700",
+              "text-slate-300",
+            );
+          });
+          btn.classList.remove(
+            "bg-cardBg",
+            "border",
+            "border-slate-700",
+            "text-slate-300",
+          );
+          btn.classList.add(
+            "bg-gradient-to-r",
+            "from-cyan-500",
+            "to-violet-600",
+            "text-white",
+            "shadow-md",
+            "shadow-cyan-500/25",
+          );
+
+          const filter = btn.getAttribute("data-filter");
+
+          skillCards.forEach((card) => {
+            if (
+              filter === "all" ||
+              card.getAttribute("data-category") === filter
+            ) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
